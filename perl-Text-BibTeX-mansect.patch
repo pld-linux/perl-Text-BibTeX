@@ -1,0 +1,26 @@
+--- Text-BibTeX-0.88/inc/MyBuilder.pm.orig	2019-04-29 17:02:41.000000000 +0200
++++ Text-BibTeX-0.88/inc/MyBuilder.pm	2019-05-29 21:34:25.982590575 +0200
+@@ -177,18 +177,18 @@
+     my $version = $self->notes('btparse_version');
+     for my $pod (@$pods) {
+         my $man = $pod;
+-        $man =~ s!.pod!.1!;
+-        $man =~ s!btparse/doc!blib/bindoc!;   ## FIXME - path
++        $man =~ s!.pod!.3!;
++        $man =~ s!btparse/doc!blib/libdoc!;   ## FIXME - path
+         next if $self->up_to_date($pod, $man);
+         ## FIXME
+-        `pod2man --section=1 --center="btparse" --release="btparse, version $version" $pod $man`;
++        `pod2man --section=3 --center="btparse" --release="btparse, version $version" $pod $man`;
+     }
+ 
+     my $pod = 'btool_faq.pod';
+-    my $man = catfile('blib','bindoc','btool_faq.1');
++    my $man = catfile('blib','libdoc','btool_faq.3');
+     unless ($self->up_to_date($pod, $man)) {
+         ## FIXME
+-        `pod2man --section=1 --center="btparse" --release="btparse, version $version" $pod $man`;
++        `pod2man --section=3 --center="btparse" --release="btparse, version $version" $pod $man`;
+     }
+ }
+ 
