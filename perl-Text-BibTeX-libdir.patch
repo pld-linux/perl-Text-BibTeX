@@ -1,0 +1,14 @@
+--- Text-BibTeX-0.88/Build.PL.orig	2019-04-29 17:02:41.000000000 +0200
++++ Text-BibTeX-0.88/Build.PL	2019-06-02 11:10:32.060438085 +0200
+@@ -88,7 +88,10 @@
+     }
+ }
+ else {
+-    if ( $Config{archname} =~ /^x86_64|^ppc64|^s390x|^aarch64|^riscv64/ ) {
++    if (exists $ENV{LIBDIR}) {
++        $libdir = $ENV{LIBDIR}
++    }
++    elsif ( $Config{archname} =~ /^x86_64|^ppc64|^s390x|^aarch64|^riscv64/ ) {
+         $libdir =~ s/\bbin\b/lib64/;
+         if ( !-d $libdir ) {
+             my $test = $libdir;

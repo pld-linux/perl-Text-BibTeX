@@ -9,13 +9,14 @@ Summary:	Text::BibTeX - Perl library for reading, parsing and processing BibTeX 
 Summary(pl.UTF-8):	Text::BibTeX - biblioteka Perla do odczytu, analizy i przetwarzania plików BibTeXa
 Name:		perl-Text-BibTeX
 Version:	0.88
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Text/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	361aad5cf400764e35d1ade3b609bb60
 Patch0:		%{name}-mansect.patch
+Patch1:		%{name}-libdir.patch
 URL:		http://www.gerg.ca/software/btOOL/
 BuildRequires:	perl-Capture-Tiny >= 0.06
 BuildRequires:	perl-Config-AutoConf >= 0.16
@@ -78,8 +79,10 @@ Pliki nagłówkowe biblioteki btparse.
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
+LIBDIR=%{_libdir} \
 %{__perl} Build.PL \
 	--config cc="%{__cc}" \
 	--config optimize="%{rpmcflags}" \
