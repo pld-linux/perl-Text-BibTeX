@@ -9,7 +9,7 @@ Summary:	Text::BibTeX - Perl library for reading, parsing and processing BibTeX 
 Summary(pl.UTF-8):	Text::BibTeX - biblioteka Perla do odczytu, analizy i przetwarzania plików BibTeXa
 Name:		perl-Text-BibTeX
 Version:	0.88
-Release:	2
+Release:	3
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
