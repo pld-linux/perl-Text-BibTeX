@@ -4,7 +4,6 @@
 #
 %define		pdir	Text
 %define		pnam	BibTeX
-%include	/usr/lib/rpm/macros.perl
 Summary:	Text::BibTeX - Perl library for reading, parsing and processing BibTeX files
 Summary(pl.UTF-8):	Text::BibTeX - biblioteka Perla do odczytu, analizy i przetwarzania plików BibTeXa
 Name:		perl-Text-BibTeX
